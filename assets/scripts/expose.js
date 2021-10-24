@@ -31,27 +31,26 @@ function init() {
     
   });
 
-  var volume = document.querySelector('#volume-controls');
+  var vol = document.querySelector('#volume');
   var volImg = document.querySelector('img[alt="Volume level 2"]');
-  volume.addEventListener('change', function() {
-    let volumeLevel = volume.value;
-    console.log(volume.value);
-    if (volumeLevel == 0) {
+  vol.addEventListener('change', function() {
+
+    let volumeLevel = vol.value;
+    let vvl = parseInt(volumeLevel);
+    let audvol = vvl/100;
+    console.log(audvol);
+    audio.volume = audvol;
+
+    if (vvl == 0) {
       volImg.setAttribute('src', 'assets/icons/volume-level-0.svg');
-      audio.volume = 0;
-    } else if (volumeLevel < 33) {
+    } else if (vvl < 33) {
       volImg.setAttribute('src', 'assets/icons/volume-level-1.svg');
-      audio.volume = volumeLevel/100;
-    } else if (volumeLevel < 67) {
+    } else if (vvl < 67) {
       volImg.setAttribute('src', 'assets/icons/volume-level-2.svg');
-      audio.volume = volumeLevel/100;
     } else {
       volImg.setAttribute('src', 'assets/icons/volume-level-3.svg');
-      audio.volume = volumeLevel/100;
-      if (volumeLevel > 100) {
-        audio.volume = 1;
-      }
     }
+    
   });
 
   let button = document.querySelector('button');
