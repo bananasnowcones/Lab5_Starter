@@ -30,7 +30,7 @@ function init() {
         voiceOption = voices[i];
       }
     }
-    //console.log(voiceOption.name);
+    console.log(voiceOption.name);
   });
 
   let words = "";
@@ -47,10 +47,10 @@ function init() {
     var toSpeak = new SpeechSynthesisUtterance(words);
     toSpeak.voice = voiceOption;
     speech.speak(toSpeak);
-    /**while (speech.speaking) {
+    while (speech.speaking) {
       face.setAttribute('src', 'assets/images/smiling-open.png');
     }
-    face.setAttribute('src', 'smiling.png');**/
+    face.setAttribute('src', 'smiling.png');
   })
 
   
