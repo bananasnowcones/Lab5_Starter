@@ -22,6 +22,21 @@ function init() {
 
 let button1 = document.querySelector('#horn-selector');
 button1.addEventListener('click', function() {
-  alert('hi');
+  let hornImage = document.querySelector('img[alt="No image selected"]');
+  let hornChoice = select.options[select.selectedIndex];
+  if (hornChoice.value == "air-horn"){
+    hornImage.setAttribute('src', 'air-horn');
+  }
+  else if (hornChoice.value == "party-horn") {
+    hornImage.setAttribute('src', 'party-horn.svg');
+  }
+  else if (hornChoice.value == "car-horn") {
+    hornImage.setAttribute('src', 'car-horn.svg');
+  }
+  else {
+    hornImage.setAttribute('src', 'assets/images/no-image.png');
+  }
+  
 })
+
 }
