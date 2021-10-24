@@ -20,23 +20,25 @@ function init() {
 //6. Sound plays, gif plays
 
 
-let button1 = document.querySelector('#horn-selector');
-button1.addEventListener('click', function() {
-  let hornImage = document.querySelector('img[alt="No image selected"]');
-  let hornChoice = select.options[select.selectedIndex];
+var dropdown = document.querySelectorAll('select')[0];
+console.log(dropdown);
+dropdown.addEventListener('change', function() {
+  let hornImage = document.querySelectorAll('img[alt="No image selected"]');
+  let hornChoice = dropdown.options;
+  
   if (hornChoice.value == "air-horn"){
-    hornImage.setAttribute('src', 'air-horn');
+    hornImage.setAttribute("src", "air-horn.svg");
   }
   else if (hornChoice.value == "party-horn") {
-    hornImage.setAttribute('src', 'party-horn.svg');
+    hornImage.setAttribute("src", "party-horn.svg");
   }
   else if (hornChoice.value == "car-horn") {
-    hornImage.setAttribute('src', 'car-horn.svg');
+    hornImage.setAttribute("src", "car-horn.svg");
   }
   else {
-    hornImage.setAttribute('src', 'assets/images/no-image.png');
+    hornImage.setAttribute("src", "assets/images/no-image.png");
   }
-  
+ 
 })
 
 }
